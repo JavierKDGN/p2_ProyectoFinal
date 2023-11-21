@@ -2,8 +2,6 @@ package Logica;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import static java.util.Arrays.*;
-
 
 public enum Recorridos {
     RECORRIDO_1("Concepcion-Chillan", 4000, new ArrayList<>(Arrays.asList(Horarios.HORA_1, Horarios.HORA_2, Horarios.HORA_5, Horarios.HORA_6, Horarios.HORA_7, Horarios.HORA_8))),
