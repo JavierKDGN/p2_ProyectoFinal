@@ -2,9 +2,9 @@ package Logica;
 
 public enum EnumCiudades {
     CIUDAD_1("CHILLAN",0),
-    CIUDAD_2("CONCEPCION",0),
-    CIUDAD_3("LOS ANGELES",0),
-    CIUDAD_4("SANTIAGO", 1);
+    CIUDAD_2("CONCEPCION",1),
+    CIUDAD_3("LOS ANGELES",1),
+    CIUDAD_4("SANTIAGO", 5);
 
     private final String nombre;
     private final int distancia;
