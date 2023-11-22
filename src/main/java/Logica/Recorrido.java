@@ -2,7 +2,7 @@ package Logica;
 
 import java.time.LocalTime;
 
-public class Recorrido {
+public class Recorrido implements Comparable<Recorrido> {
     private final EnumHorarios horario_salida;
     private final String origen;
     private final String destino;
@@ -56,6 +56,10 @@ public class Recorrido {
 
     public String toString() {
         return hora_salida + "-" + hora_llegada + " " + origen + "-" + destino;
+    }
+
+    public int compareTo(Recorrido recorrido) {
+        return this.hora_salida.compareTo(recorrido.getHora_salida());
     }
 
 }
