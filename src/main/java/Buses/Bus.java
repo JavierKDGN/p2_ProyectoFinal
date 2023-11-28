@@ -6,7 +6,7 @@ public abstract class Bus {
     protected int ASIENTOS_NORMAL;
     protected int ASIENTOS_SEMI;
     protected int ASIENTOS_CAMA;
-    private int precio_viaje;
+    private int tarifa;
     private final ArrayList<Asiento> asientos;
     private final AsientoFactory asientoFactory;
 
@@ -30,7 +30,14 @@ public abstract class Bus {
         }
     }
 
+    public ArrayList getAsientos() {
+        return asientos;
+    }
     public void setPrecio(int precio) {
-        this.precio_viaje = precio;
+        this.tarifa = precio;
+    }
+
+    public int getTarifa() {
+        return tarifa;
     }
 }

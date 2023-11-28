@@ -15,7 +15,7 @@ public class Recorrido implements Comparable<Recorrido> {
 
     private BusFactory busFactory;
     private Bus bus;
-    private int precio_viaje;
+    private int tarifa;
 
     public Recorrido(EnumCiudades origen , EnumCiudades destino, EnumHorarios horario_salida) {
         this.origen = origen.getNombre();
@@ -61,10 +61,12 @@ public class Recorrido implements Comparable<Recorrido> {
     public LocalTime getHora_llegada() {
         return hora_llegada;
     }
-
+    public Bus getBus() {
+        return bus;
+    }
     public int calcularPrecio() {
-        precio_viaje = 2000 * distancia;
-        return precio_viaje;
+        tarifa = 2000 * distancia;
+        return tarifa;
     }
     public String toString() {
         return hora_salida + "-" + hora_llegada + " " + origen + "-" + destino;
