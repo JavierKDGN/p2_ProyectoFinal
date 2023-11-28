@@ -1,5 +1,8 @@
 package Logica;
 
+import Buses.Bus;
+import Buses.BusFactory;
+
 import java.time.LocalTime;
 
 public class Recorrido implements Comparable<Recorrido> {
@@ -10,14 +13,19 @@ public class Recorrido implements Comparable<Recorrido> {
     private final int distancia;
     private LocalTime hora_llegada;
 
+    private BusFactory busFactory;
+    private Bus bus;
+    private int precio_viaje;
+
     public Recorrido(EnumCiudades origen , EnumCiudades destino, EnumHorarios horario_salida) {
         this.origen = origen.getNombre();
         this.destino = destino.getNombre();
         this.horario_salida = horario_salida;
         this.hora_salida = horario_salida.getHora();
         this.distancia = Math.abs(origen.getDistancia() - destino.getDistancia());
-
-        calcularHoraLLegada();
+        this.busFactory = new BusFactory((Math.random() <= 0.5) ? 1 : 2);
+        this.bus = busFactory.crearBus();
+        bus.setPrecio(calcularPrecio());
     }
     private void calcularHoraLLegada() {
         //if distancia < 2 entonces el viaje dura 1 hora y media
@@ -54,6 +62,10 @@ public class Recorrido implements Comparable<Recorrido> {
         return hora_llegada;
     }
 
+    public int calcularPrecio() {
+        precio_viaje = 2000 * distancia;
+        return precio_viaje;
+    }
     public String toString() {
         return hora_salida + "-" + hora_llegada + " " + origen + "-" + destino;
     }

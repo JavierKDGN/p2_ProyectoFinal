@@ -6,17 +6,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SistemaTest {
-    private Sistema sistema;
+class SistemaRecorridosTest {
+    private SistemaRecorridos sistemaRecorridos;
     @BeforeEach
     void setUp() {
-        sistema = new Sistema(10);
+        sistemaRecorridos = new SistemaRecorridos(10);
     }
 
     @Test
     @DisplayName("Test de Sistema y sus recorridos creados")
     public void testSistema() {
-        assertNotNull(sistema);
-        sistema.printRecorridos();
+        assertNotNull(sistemaRecorridos);
+        sistemaRecorridos.printRecorridos();
     }
 }
