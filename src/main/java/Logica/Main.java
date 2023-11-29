@@ -2,8 +2,13 @@ package Logica;
 
 import GUI.VentanaPrincipal;
 
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
-        SistemaRecorridos sistema = new SistemaRecorridos(10);
+        SwingUtilities.invokeLater(() -> {
+            SistemaRecorridos sistema = new SistemaRecorridos(10);
+            new VentanaPrincipal(sistema);
+        });
     }
 }
