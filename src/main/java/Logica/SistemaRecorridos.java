@@ -20,6 +20,7 @@ public class SistemaRecorridos {
         for (int i = 0; i < cantidad_recorridos; i++) {
             Recorrido rec = recorrido_Factory.crearRecorridoAleatorio();
             recorridos.add(rec);
+            rec.calcularHoraLLegada();
         }
         //Ordena los recorridos por hora de salida
         Collections.sort(recorridos);
