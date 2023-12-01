@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class SistemaRecorridos {
-    public ArrayList<Recorrido> recorridos;
+    private final int CANTIDAD_RECORRIDOS = 10;
     private RecorridoFactory recorrido_Factory;
-    private int cantidad_recorridos;
-    public SistemaRecorridos(int cantidad_recorridos) {
+    private ArrayList<Recorrido> recorridos;
+
+    public SistemaRecorridos() {
         this.recorridos = new ArrayList<Recorrido>();
         this.recorrido_Factory = new RecorridoFactory();
-        this.cantidad_recorridos = cantidad_recorridos;
 
         crearRecorridos();
-        printRecorridos();
     }
-    public void crearRecorridos() {
+    private void crearRecorridos() {
         //Crea los recorridos aleatoriamente mediante el Factory
-        for (int i = 0; i < cantidad_recorridos; i++) {
+        for (int i = 0; i < CANTIDAD_RECORRIDOS; i++) {
             Recorrido rec = recorrido_Factory.crearRecorridoAleatorio();
             recorridos.add(rec);
+            rec.calcularHoraLLegada();
         }
         //Ordena los recorridos por hora de salida
         Collections.sort(recorridos);
@@ -28,5 +28,8 @@ public class SistemaRecorridos {
         for (Recorrido recorrido : recorridos) {
             System.out.println(recorrido.toString());
         }
+    }
+    public ArrayList<Recorrido> getRecorridos() {
+        return recorridos;
     }
 }

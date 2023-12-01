@@ -6,11 +6,11 @@ public class AsientoFactory {
     public AsientoFactory() {
     }
 
-    public Asiento crearAsiento(TipoAsiento tipo) {
+    public Asiento crearAsiento(TipoAsiento tipo, int numero) {
         switch (tipo) {
-            case NORMAL -> asiento = new AsientoNormal();
-            case SEMICAMA -> asiento = new AsientoSemiCama();
-            case CAMA -> asiento = new AsientoCama();
+            case NORMAL -> asiento = new AsientoNormal(numero);
+            case SEMICAMA -> asiento = new AsientoSemiCama(numero);
+            case CAMA -> asiento = new AsientoCama(numero);
         }
         return asiento;
     }

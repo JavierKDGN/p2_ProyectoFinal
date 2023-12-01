@@ -8,4 +8,13 @@ public class BusDosPisos extends Bus{
         ASIENTOS_CAMA = 10;
         crearAsientos();
     }
+    @Override
+    public String getTipo() {
+        return "Dos Pisos";
+    }
+
+    public int getCantidadPisos() {
+        return 2;
+    }
+
 }

@@ -9,4 +9,11 @@ public class BusUnPiso extends Bus {
         ASIENTOS_CAMA = 0;
         crearAsientos();
     }
+    @Override
+    public String getTipo() {
+        return "Un Piso";
+    }
+    public int getCantidadPisos() {
+        return 1;
+    }
 }

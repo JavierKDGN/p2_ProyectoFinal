@@ -10,7 +10,7 @@ class SistemaRecorridosTest {
     private SistemaRecorridos sistemaRecorridos;
     @BeforeEach
     void setUp() {
-        sistemaRecorridos = new SistemaRecorridos(10);
+        sistemaRecorridos = new SistemaRecorridos();
     }
 
     @Test
