@@ -43,6 +43,12 @@ public abstract class Bus {
     public int getAsientosCamaInt() {
         return ASIENTOS_CAMA;
     }
+    public int getAsientosSemiInt() {
+        return ASIENTOS_SEMI;
+    }
+    public int getAsientosNormalInt() {
+        return ASIENTOS_NORMAL;
+    }
     public int getTarifa() {
         return tarifa;
     }

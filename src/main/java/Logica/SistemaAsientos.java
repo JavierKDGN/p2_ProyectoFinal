@@ -6,15 +6,13 @@ import java.util.ArrayList;
 
 public class SistemaAsientos {
 
-    private Recorrido recorrido;
     private Bus bus;
     private ArrayList<Asiento> asientos;
     private ArrayList<Asiento> asientos_pedidos;
     private int precio;
 
-    public SistemaAsientos(Recorrido recorrido) {
-        this.recorrido = recorrido;
-        this.bus = recorrido.getBus();
+    public SistemaAsientos(Bus bus) {
+        this.bus = bus;
         this.asientos = bus.getAsientosArray();
         this.asientos_pedidos = new ArrayList<>();
     }
