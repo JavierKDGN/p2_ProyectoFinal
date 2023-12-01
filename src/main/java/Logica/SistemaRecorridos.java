@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class SistemaRecorridos {
-    private ArrayList<Recorrido> recorridos;
+    public ArrayList<Recorrido> recorridos;
     private RecorridoFactory recorrido_Factory;
     private int cantidad_recorridos;
     public SistemaRecorridos(int cantidad_recorridos) {
