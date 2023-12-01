@@ -17,7 +17,7 @@ public class VentanaPrincipal extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         this.sistemaRecorridos = sistemaRecorridos;
-        panelInicial = new PanelRecorridos(Color.white, sistemaRecorridos.recorridos);
+        panelInicial = new PanelRecorridos(Color.white, sistemaRecorridos.getRecorridos());
         this.add(panelInicial, BorderLayout.CENTER);
         this.setVisible(true);
     }
