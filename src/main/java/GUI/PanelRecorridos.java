@@ -1,6 +1,7 @@
 package GUI;
 
 import Logica.Recorrido;
+import Logica.SistemaRecorridos;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,19 +9,22 @@ import java.util.ArrayList;
 
 public class PanelRecorridos extends JPanel {
     private JComboBox<String> recorridosComboBox; //combobox para seleccionar
+    private SistemaRecorridos sistemaRecorridos;
     private ArrayList<Recorrido> recorridos;
+    private String[] recorridos_String;
 
-    public PanelRecorridos(Color color, ArrayList<Recorrido> recorridos) {
+    public PanelRecorridos(Color color) {
         this.setBackground(color);
-        this.recorridos = recorridos;
+        sistemaRecorridos = new SistemaRecorridos();
+        recorridos = sistemaRecorridos.getRecorridos();
 
         //array de String con la representación de los recorridos
-        String[] recorridosArray = new String[recorridos.size()];
+        recorridos_String = new String[recorridos.size()];
         for (int i = 0; i < recorridos.size(); i++) {
-            recorridosArray[i] = recorridos.get(i).toString();
+            recorridos_String[i] = recorridos.get(i).toString();
         }
         //crear el JComboBox con el array de recorridos
-        recorridosComboBox = new JComboBox<>(recorridosArray);
+        recorridosComboBox = new JComboBox<>(recorridos_String);
         this.add(recorridosComboBox);
     }
 

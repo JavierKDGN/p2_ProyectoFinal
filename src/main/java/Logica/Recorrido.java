@@ -26,6 +26,7 @@ public class Recorrido implements Comparable<Recorrido> {
         this.busFactory = new BusFactory((Math.random() <= 0.5) ? 1 : 2);
         this.bus = busFactory.crearBus();
         bus.setPrecio(calcularPrecio());
+        calcularHoraLLegada();
     }
     private void calcularHoraLLegada() {
         //if distancia < 2 entonces el viaje dura 1 hora y media
