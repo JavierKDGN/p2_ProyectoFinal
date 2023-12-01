@@ -18,15 +18,15 @@ public abstract class Bus {
 
     protected void crearAsientos() {
         for (int i = 0; i < ASIENTOS_NORMAL; i++) {
-            Asiento aux = asientoFactory.crearAsiento(TipoAsiento.NORMAL);
+            Asiento aux = asientoFactory.crearAsiento(TipoAsiento.NORMAL, i);
             asientos.add(aux);
         }
         for (int i = 0; i < ASIENTOS_SEMI; i++) {
-            Asiento aux = asientoFactory.crearAsiento(TipoAsiento.SEMICAMA);
+            Asiento aux = asientoFactory.crearAsiento(TipoAsiento.SEMICAMA, i + ASIENTOS_NORMAL);
             asientos.add(aux);
         }
         for (int i = 0; i < ASIENTOS_CAMA; i++) {
-            Asiento aux = asientoFactory.crearAsiento(TipoAsiento.CAMA);
+            Asiento aux = asientoFactory.crearAsiento(TipoAsiento.CAMA, i + ASIENTOS_NORMAL + ASIENTOS_SEMI);
             asientos.add(aux);
         }
 

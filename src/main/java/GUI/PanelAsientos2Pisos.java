@@ -1,47 +1,27 @@
 package GUI;
 
+import Buses.Asiento;
 import Logica.Recorrido;
 
+import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
-public class PanelAsientos2Pisos extends PanelAsientos {
-    private final int CANTIDAD_ASIENTOS_CAMA = recorrido.getBus().getAsientosCamaInt();
-    public PanelAsientos2Pisos(Color color, Recorrido recorrido) {
-        super(color, recorrido);
+public class PanelAsientos2Pisos extends JPanel {
+    private JLabel label_piso;
+
+    public PanelAsientos2Pisos(Color color) {
+        this.setLayout(new GridLayout(10, 1));
     }
 
+    public void agregarAsientos(ArrayList<Asiento> asientos) {
+        for (Asiento asiento : asientos) {
+            BotonAsiento botonAsiento = new BotonAsiento(asiento);
+            this.add(botonAsiento);
+        }
+    }
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        int x = 25;
-        int y = 25;
-        int ancho = 25;
-        int alto = 25;
-        int contador = 0;
-        GUIAsiento grafico_asiento;
-        for (int i = 0; i < CANTIDAD_ASIENTOS; i++) {
-            if (i >= CANTIDAD_ASIENTOS - CANTIDAD_ASIENTOS_CAMA) {
-                if (contador == 4) {
-                    y = 225;
-                    x += 50;
-                    contador = 0;
-                }
-                grafico_asiento = new GUIAsiento(x, y, asientos.get(i));
-                grafico_asiento.paintComponent(g);
-                y += 50;
-                contador++;
-                continue;
-            }
-            if (contador == 4) {
-                y = 25;
-                x += 50;
-                contador = 0;
-            }
-            grafico_asiento = new GUIAsiento(x, y, asientos.get(i));
-            grafico_asiento.paintComponent(g);
-            y += 50;
-            contador++;
-        }
-
     }
 }
