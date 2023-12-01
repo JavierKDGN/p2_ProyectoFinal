@@ -8,9 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelRecorridos extends JPanel {
-    private JComboBox<String> recorridosComboBox; //combobox para seleccionar
     private SistemaRecorridos sistemaRecorridos;
     private ArrayList<Recorrido> recorridos;
+    private RecorridoComboBox recorridosComboBox; //combobox para seleccionar
     private String[] recorridos_String;
 
     public PanelRecorridos(Color color) {
@@ -24,15 +24,19 @@ public class PanelRecorridos extends JPanel {
             recorridos_String[i] = recorridos.get(i).toString();
         }
         //crear el JComboBox con el array de recorridos
-        recorridosComboBox = new JComboBox<>(recorridos_String);
-        recorridosComboBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Recorrido selectedRecorrido = recorridos.get(recorridosComboBox.getSelectedIndex());
-                abrirVentanaAsientos(selectedRecorrido);
-            }
-        });
+        recorridosComboBox = new RecorridoComboBox(recorridos_String);
         this.add(recorridosComboBox);
+    }
+    private class RecorridoComboBox extends JComboBox implements ActionListener {
+        public RecorridoComboBox(String[] recorridos) {
+            super(recorridos);
+            this.addActionListener(this);
+        }
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Recorrido selectedRecorrido = recorridos.get(recorridosComboBox.getSelectedIndex());
+            abrirVentanaAsientos(selectedRecorrido);
+        }
     }
 
     public Recorrido getRecorridoSeleccionado() {

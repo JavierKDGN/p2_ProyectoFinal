@@ -13,6 +13,7 @@ public class BusUnPiso extends Bus {
     public String getTipo() {
         return "Un Piso";
     }
-
-
+    public int getCantidadPisos() {
+        return 1;
+    }
 }

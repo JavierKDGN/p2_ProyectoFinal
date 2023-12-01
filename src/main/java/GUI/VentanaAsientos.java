@@ -9,25 +9,28 @@ import java.awt.*;
 public class VentanaAsientos  extends JFrame {
     private Recorrido recorrido;
     private PanelAsientos panelAsientos;
-
     public VentanaAsientos(Recorrido recorrido) {
         super();
         this.recorrido = recorrido;
         this.setTitle("Asientos - " + recorrido.toString());
         this.setLayout(new BorderLayout());
         this.setSize(800, 600);
-        panelAsientos = new PanelAsientos(Color.white);
+
+        if (recorrido.getBus().getCantidadPisos() == 1) {
+            panelAsientos = new PanelAsientos1Piso(Color.lightGray, recorrido);
+        } else if (recorrido.getBus().getCantidadPisos() == 2) {
+            panelAsientos = new PanelAsientos2Pisos(Color.lightGray, recorrido);
+        }
+
         this.add(panelAsientos, BorderLayout.CENTER);
         mostrarInformacionBus(recorrido);
     }
 
-
-
-    //esto despues cambiarlo y que se vea la informacion en una parte del PanelAsientos, esto de la mensajeemergente es solo temporal para ver que se muestra bien la info de cada bus
+    //esto despues cambiarlo y que se vea la informacion en una parte del PanelAsientos, esto de la mensaje emergente es solo temporal para ver que se muestra bien la info de cada bus
     private void mostrarInformacionBus(Recorrido recorrido) {
         Bus bus = recorrido.getBus();
         if (bus != null) {
-            String cantidadAsientos = bus.getCantidadAsientosPorTipo();
+            String cantidadAsientos = bus.toString();
 
             String mensaje = "Información del Bus:\n" +
                     "Tipo: " + bus.getTipo() + "\n" +

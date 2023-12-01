@@ -13,5 +13,8 @@ public class BusDosPisos extends Bus{
         return "Dos Pisos";
     }
 
+    public int getCantidadPisos() {
+        return 2;
+    }
 
 }

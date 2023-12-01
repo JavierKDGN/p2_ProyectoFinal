@@ -25,7 +25,7 @@ public class Recorrido implements Comparable<Recorrido> {
         this.distancia = Math.abs(origen.getDistancia() - destino.getDistancia());
         this.busFactory = new BusFactory((Math.random() <= 0.5) ? 1 : 2);
         this.bus = busFactory.crearBus();
-        bus.setPrecio(calcularPrecio());
+        bus.setTarifa(calcularPrecio());
         calcularHoraLLegada();
     }
     void calcularHoraLLegada() {

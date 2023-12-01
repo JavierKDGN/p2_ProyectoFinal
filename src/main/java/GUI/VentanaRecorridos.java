@@ -1,5 +1,7 @@
 package GUI;
 
+import Logica.Recorrido;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,7 +10,7 @@ public class VentanaRecorridos extends JFrame {
 
     public VentanaRecorridos() {
         super();
-        this.setTitle("Proyecto Final");
+        this.setTitle("Recorridos");
         this.setLayout(new BorderLayout());
         this.setSize(400, 400);
         this.setResizable(false);

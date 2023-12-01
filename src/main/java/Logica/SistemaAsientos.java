@@ -2,7 +2,6 @@ package Logica;
 
 import Buses.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class SistemaAsientos {
@@ -16,10 +15,9 @@ public class SistemaAsientos {
     public SistemaAsientos(Recorrido recorrido) {
         this.recorrido = recorrido;
         this.bus = recorrido.getBus();
-        this.asientos = bus.getAsientos();
+        this.asientos = bus.getAsientosArray();
         this.asientos_pedidos = new ArrayList<>();
     }
-
     public void elegirAsiento(int index) {
         Asiento aux = asientos.get(index);
         //Si el asiento a elegir esta ocupado lanza excepcion
@@ -33,7 +31,6 @@ public class SistemaAsientos {
             precio += aux.getPrecio() + bus.getTarifa();
         }
     }
-
     public void desElegirAsiento(int index) {
         Asiento aux = asientos.get(index);
         //Si el asiento fue pedido por la compra actual, le elimina la reserva
@@ -45,5 +42,14 @@ public class SistemaAsientos {
         else {
             //Si el asiento fue pedido por otra compra o esta desocupado no hace nada
         }
+    }
+    public ArrayList<Asiento> getAsientosTotalesArray() {
+        return asientos;
+    }
+    public ArrayList<Asiento> getAsientosPedidosArray() {
+        return asientos_pedidos;
+    }
+    public int getAsientosTotalInt() {
+        return bus.getAsientosTotal();
     }
 }
