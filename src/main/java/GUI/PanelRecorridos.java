@@ -24,7 +24,7 @@ public class PanelRecorridos extends JPanel {
             recorridos_String[i] = recorridos.get(i).toString();
         }
         //crear el JComboBox con el array de recorridos
-        recorridosComboBox = new JComboBox<>(recorridosArray);
+        recorridosComboBox = new JComboBox<>(recorridos_String);
         recorridosComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
