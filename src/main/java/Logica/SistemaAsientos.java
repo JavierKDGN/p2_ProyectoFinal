@@ -50,4 +50,8 @@ public class SistemaAsientos {
     public int getAsientosTotalInt() {
         return bus.getAsientosTotalInt();
     }
+
+    public int getPrecio() {
+        return precio;
+    }
 }
