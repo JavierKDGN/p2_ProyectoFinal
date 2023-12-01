@@ -45,9 +45,10 @@ public abstract class PanelAsientos extends JPanel {
         }
         private class MouseListenerAsiento extends MouseAdapter {
             @Override
-            public void mousePressed(MouseEvent e) {
+            public void mouseClicked(MouseEvent e) {
                 if (p.contains(e.getPoint())) {
                     System.out.println("Click en asiento: " + asientos.indexOf(asiento));
+
                 }
             }
         }
