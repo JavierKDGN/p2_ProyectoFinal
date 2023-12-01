@@ -50,6 +50,6 @@ public class SistemaAsientos {
         return asientos_pedidos;
     }
     public int getAsientosTotalInt() {
-        return bus.getAsientosTotal();
+        return bus.getAsientosTotalInt();
     }
 }

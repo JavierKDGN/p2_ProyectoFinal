@@ -37,9 +37,11 @@ public abstract class Bus {
     }
     public abstract String getTipo();
     public abstract int getCantidadPisos();
-
-    public int getAsientosTotal() {
+    public int getAsientosTotalInt() {
         return ASIENTOS_TOTAL;
+    }
+    public int getAsientosCamaInt() {
+        return ASIENTOS_CAMA;
     }
     public int getTarifa() {
         return tarifa;
