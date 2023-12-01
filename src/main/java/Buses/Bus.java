@@ -40,4 +40,11 @@ public abstract class Bus {
     public int getTarifa() {
         return tarifa;
     }
+
+
+    public abstract String getTipo();
+
+    public String getCantidadAsientosPorTipo() {
+        return "Cama(" + ASIENTOS_CAMA + "), Semicama(" + ASIENTOS_SEMI + "), Normal(" + ASIENTOS_NORMAL + ")";
+    }
 }

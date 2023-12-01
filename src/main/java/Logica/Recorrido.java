@@ -28,7 +28,7 @@ public class Recorrido implements Comparable<Recorrido> {
         bus.setPrecio(calcularPrecio());
         calcularHoraLLegada();
     }
-    private void calcularHoraLLegada() {
+    void calcularHoraLLegada() {
         //if distancia < 2 entonces el viaje dura 1 hora y media
         final int MEDIA_HORA = 30;
         int indice_aux;
