@@ -15,8 +15,8 @@ public class VentanaAsientos  extends JFrame {
         this.recorrido = recorrido;
         this.setTitle("Asientos - " + recorrido.toString());
         this.setLayout(new BorderLayout());
-        this.setSize(800, 600);
-        panelAsientos = new PanelAsientos(Color.white);
+        this.setSize(1000, 900);
+        panelAsientos = new PanelAsientos(Color.white, recorrido.getBus().getAsientos());
         this.add(panelAsientos, BorderLayout.CENTER);
         mostrarInformacionBus(recorrido);
     }
