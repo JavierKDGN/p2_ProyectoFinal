@@ -5,9 +5,11 @@ public abstract class Asiento {
     protected String tipo;
     protected boolean ocupado;
     private int numero;
+    protected int seleccionado;
     public Asiento(int numero) {
         this.ocupado = false;
         this.numero = numero;
+        this.seleccionado = 0;
     }
 
     public int getPrecio() {
@@ -25,4 +27,12 @@ public abstract class Asiento {
     public boolean isOcupado() {
         return ocupado;
     }
+
+    public int getSeleccionado() {
+        return seleccionado;
+    }
+    public void setSeleccionado(int seleccionado) {
+        this.seleccionado = seleccionado;
+    }
+
 }

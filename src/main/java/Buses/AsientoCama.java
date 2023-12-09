@@ -6,5 +6,6 @@ public class AsientoCama extends Asiento {
         super(numero);
         precio = cama.getPrecio();
         tipo = cama.toString();
+        ocupado=false;
     }
 }

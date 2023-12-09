@@ -5,9 +5,8 @@ import Buses.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class PanelAsientos extends JPanel {
@@ -16,6 +15,8 @@ public class PanelAsientos extends JPanel {
     private final int pisos;
     private final int CANTIDAD_ASIENTOS_TOTAL;
     private final int CANTIDAD_ASIENTOS_CAMA;
+
+    private JButton botonConfirmar;
 
     private PanelAsientos1Piso panel_primer_piso;
     private PanelAsientos2Pisos panel_segundo_piso;
@@ -38,6 +39,23 @@ public class PanelAsientos extends JPanel {
             panel_segundo_piso.agregarAsientos(asientos, CANTIDAD_ASIENTOS_TOTAL - CANTIDAD_ASIENTOS_CAMA);
             this.add(panel_segundo_piso, BorderLayout.SOUTH);
         }
+
+        // Crear el botón Pagar
+        botonConfirmar = new JButton("Confirmar");
+        botonConfirmar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                abrirVentanaConfirmacion();
+            }
+        });
+        this.add(botonConfirmar);
+
+
+    }
+
+    private void abrirVentanaConfirmacion() {
+        VentanaConfirmacion ventanaConfirmacion = new VentanaConfirmacion();
+        ventanaConfirmacion.setVisible(true);
     }
 
 }
