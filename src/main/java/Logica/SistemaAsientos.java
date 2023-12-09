@@ -29,18 +29,7 @@ public class SistemaAsientos {
             precio += aux.getPrecio() + bus.getTarifa();
         }
     }
-    public void desElegirAsiento(int index) {
-        Asiento aux = asientos.get(index);
-        //Si el asiento fue pedido por la compra actual, le elimina la reserva
-        if (aux.isOcupado() && asientos_pedidos.contains(aux)) {
-            asientos_pedidos.remove(aux);
-            aux.setOcupado(false);
-            precio -= aux.getPrecio() + bus.getTarifa();
-        }
-        else {
-            //Si el asiento fue pedido por otra compra o esta desocupado no hace nada
-        }
-    }
+
     public ArrayList<Asiento> getAsientosTotalesArray() {
         return asientos;
     }

@@ -9,6 +9,7 @@ import java.awt.*;
 public class VentanaAsientos  extends JFrame {
     private Recorrido recorrido;
     private PanelAsientos panelAsientos;
+
     public VentanaAsientos(Recorrido recorrido) {
         super();
         this.recorrido = recorrido;
@@ -18,6 +19,7 @@ public class VentanaAsientos  extends JFrame {
 
         panelAsientos = new PanelAsientos(Color.lightGray, recorrido.getBus());
         this.add(panelAsientos, BorderLayout.CENTER);
+        panelAsientos.asignarRecorrido(recorrido);
         mostrarInformacionBus(recorrido);
     }
 
