@@ -7,9 +7,9 @@ import java.util.ArrayList;
 public class SistemaAsientos {
 
     private Bus bus;
-    private ArrayList<Asiento> asientos;
-    private ArrayList<Asiento> asientos_seleccionados;
-    private ArrayList<Asiento> asientos_ocupados;
+    private static ArrayList<Asiento> asientos;
+    private static ArrayList<Asiento> asientos_seleccionados;
+    private static ArrayList<Asiento> asientos_ocupados;
     private int precio;
 
     public SistemaAsientos(Bus bus) {
@@ -49,6 +49,13 @@ public class SistemaAsientos {
             asientos_ocupados.add(asiento);
         }
         asientos_seleccionados.clear();
+    }
+    public void cancelarCompra() {
+        for (Asiento asiento : asientos_seleccionados) {
+            asiento.setTemp_seleccionado(false);
+        }
+        asientos_seleccionados.clear();
+        precio = 0;
     }
     public ArrayList<Asiento> getAsientosTotalesArray() {
         return asientos;

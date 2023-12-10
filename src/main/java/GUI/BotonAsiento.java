@@ -49,7 +49,7 @@ public class BotonAsiento extends JButton {
                     actualizarEstado();
                 } else if (asiento.getTemp_seleccionado() == true){
                     // Deseleccionar el asiento
-                    asiento.setTemp_seleccionado(false);
+                    sistema_asientos.deselegirAsiento(asiento.getNumero());
                     // Vuelve a verde si no está ocupado
                     actualizarEstado();
                 }

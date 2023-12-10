@@ -8,14 +8,14 @@ import java.awt.*;
 
 public class VentanaAsientos  extends JFrame {
     private PanelAsientos panelAsientos;
-    private static VentanaAsientosMediator mediator;
+    private static VentanasMediator mediator;
     public VentanaAsientos(Recorrido recorrido) {
         super();
         this.setTitle("Asientos - " + recorrido.toString());
         this.setLayout(new BorderLayout());
         this.setSize(800, 600);
 
-        this.mediator = new VentanaAsientosMediator(this);
+        this.mediator = new VentanasMediator(this);
         panelAsientos = new PanelAsientos(Color.lightGray, recorrido, mediator);
 
         this.add(panelAsientos, BorderLayout.CENTER);
