@@ -13,17 +13,15 @@ public class BotonAsiento extends JButton {
     private SistemaAsientos sistema_asientos;
     public BotonAsiento(Asiento asiento, SistemaAsientos sistema_asientos) {
         super();
-        this.setSize(100,25);
+        this.setSize(100, 25);
         this.asiento = asiento;
         this.sistema_asientos = sistema_asientos;
 
         this.setText("<html> " + String.valueOf(asiento.getNumero()) + "<br />" + asiento.getTipo() + "</html>");
-        this.setBackground(Color.green);
-        this.addActionListener(new AsientoListener());
-    }
 
-    private class AsientoListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
+        actualizarEstado();
+
+        this.addActionListener(e -> {
             if (asiento.getSeleccionado() == 0) {
                 System.out.println("Asiento " + asiento.getNumero() + " seleccionado");
                 sistema_asientos.elegirAsiento(asiento.getNumero());
@@ -36,8 +34,13 @@ public class BotonAsiento extends JButton {
                 asiento.setSeleccionado(0);
 
                 // Vuelve a verde si no está ocupado
-                setBackground(asiento.getSeleccionado()==1 ? Color.red : Color.green);
+                setBackground(asiento.getSeleccionado() == 1 ? Color.red : Color.green);
             }
-        }
+        });
+    }
+
+    public void actualizarEstado() {
+        setEnabled(!asiento.isOcupado());
+        setBackground(asiento.isOcupado() ? Color.red : Color.green);
     }
 }

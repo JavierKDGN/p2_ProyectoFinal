@@ -9,7 +9,7 @@ public abstract class Asiento {
     public Asiento(int numero) {
         this.ocupado = false;//empieza con todos los asientos desocupados
         this.numero = numero;
-        this.seleccionado = 0;//empieza con todos los asientos sinseleccionar
+        this.seleccionado = 0;//empieza con todos los asientos SinSeleccionar
     }
 
     public int getPrecio() {
