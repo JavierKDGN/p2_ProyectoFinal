@@ -10,10 +10,9 @@ Proyecto Programación
 
 °Patrones ocupados:
   *Factory: Sabemos que el patrón Factory se utiliza para crear objetos de una jerarquía de clases sin especificar la clase concreta que se va a instanciar. Decidimos ocupar este ya que el cliente no necesita 
-            conocer los detalles específicos de cómo se crean los objetos Asiento, simplemente utiliza el Factory para obtener la instancia adecuada según ciertos parámetros (tipo de asiento y número) ademas de 
-            que toda la lógica relacionada con la creación de objetos Asiento se centraliza con el factory, lo que facilita el mantenimiento y evita la duplicación de código.
+            conocer los detalles específicos de cómo se crean los objetos Asiento, Bus o Recorrido simplemente utiliza el Factory para obtener la instancia adecuada según ciertos parámetros (tipo de asiento y número en el caso de los asientos, o tipo de bus) ademas de que toda la lógica relacionada con la creación de objetos se centraliza con el factory, lo que facilita el mantenimiento y evita la duplicación de código.
   *Mediator: Sabemos que este se utiliza para centralizar la comunicación y las interacciones entre varios objetos, evitando que estos objetos se comuniquen directamente entre sí. Ocupamos este para se comuniquen 
-            ciertos objetos(ventanas) de manera desacoplada a través de un objeto mediador central VentanasMediator.
+            ciertos objetos(ventanas) con sus respectivos paneles de manera desacoplada a través de un objeto mediador central VentanasMediator para poder cerrar las ventanas cuando ya no son necesarias.
 
 °Ss de la interfaz:
 
