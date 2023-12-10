@@ -17,4 +17,8 @@ public class BusDosPisos extends Bus{
         return 2;
     }
 
+    public String toString() {
+        return "2 Pisos. Tarifa: " + this.getTarifa();
+    }
+
 }

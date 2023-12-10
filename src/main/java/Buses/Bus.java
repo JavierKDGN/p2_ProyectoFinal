@@ -55,7 +55,5 @@ public abstract class Bus {
     public void setTarifa(int precio) {
         this.tarifa = precio;
     }
-    public String toString() {
-        return "Cama(" + ASIENTOS_CAMA + "), Semicama(" + ASIENTOS_SEMI + "), Normal(" + ASIENTOS_NORMAL + ")";
-    }
+    public abstract String toString() ;
 }
