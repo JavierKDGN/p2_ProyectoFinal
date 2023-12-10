@@ -16,4 +16,8 @@ public class BusUnPiso extends Bus {
     public int getCantidadPisos() {
         return 1;
     }
+
+    public String toString() {
+        return "1 Piso. Tarifa: " + this.getTarifa();
+    }
 }

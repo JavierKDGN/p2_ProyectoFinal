@@ -3,7 +3,7 @@ package Logica;
 public enum EnumCiudades {
     CIUDAD_1("CHILLAN",0),
     CIUDAD_2("CONCEPCION",1),
-    CIUDAD_3("LOS ANGELES",1),
+    CIUDAD_3("LOS ANGELES",2),
     CIUDAD_4("SANTIAGO", 5);
 
     private final String nombre;
