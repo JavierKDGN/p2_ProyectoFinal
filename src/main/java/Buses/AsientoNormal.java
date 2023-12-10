@@ -6,5 +6,6 @@ public class AsientoNormal extends Asiento {
         super(numero);
         precio = normal.getPrecio();
         tipo = normal.toString();
+        ocupado=false;
     }
 }

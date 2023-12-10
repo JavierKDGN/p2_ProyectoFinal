@@ -7,16 +7,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class VentanaAsientos  extends JFrame {
-    private Recorrido recorrido;
     private PanelAsientos panelAsientos;
     public VentanaAsientos(Recorrido recorrido) {
         super();
-        this.recorrido = recorrido;
         this.setTitle("Asientos - " + recorrido.toString());
         this.setLayout(new BorderLayout());
         this.setSize(800, 600);
 
-        panelAsientos = new PanelAsientos(Color.lightGray, recorrido.getBus());
+        panelAsientos = new PanelAsientos(Color.lightGray, recorrido);
         this.add(panelAsientos, BorderLayout.CENTER);
         mostrarInformacionBus(recorrido);
     }
@@ -32,5 +30,8 @@ public class VentanaAsientos  extends JFrame {
                     "Asientos: " + cantidadAsientos + "\n";
             JOptionPane.showMessageDialog(this, mensaje);
         }
+    }
+    public void cerrarVentana() {
+        this.dispose(); // Cierra la ventana
     }
 }
