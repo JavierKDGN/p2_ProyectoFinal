@@ -39,7 +39,7 @@ public class BotonAsiento extends JButton {
     private class AsientoListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if (asiento.isOcupado()) {
-
+                JOptionPane.showMessageDialog(null, "Este asiento ya está ocupado.", "Error", JOptionPane.ERROR_MESSAGE);
             }
             else {
                 if (asiento.getTemp_seleccionado() == false) {

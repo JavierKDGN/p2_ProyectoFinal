@@ -12,7 +12,7 @@ public class VentanaRecorridos extends JFrame {
         super();
         this.setTitle("Recorridos");
         this.setLayout(new BorderLayout());
-        this.setSize(1000, 800);
+        this.setSize(1200, 950);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
