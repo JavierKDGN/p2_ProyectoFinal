@@ -23,7 +23,6 @@ public class PanelAsientos1Piso extends AbsPanelPisos {
     public void agregarAsientos(ArrayList<Asiento> asientos, int cantidad) {
         for (int i = 0; i < cantidad; i++) {
             BotonAsiento botonAsiento = new BotonAsiento(asientos.get(i), sistema_asientos);
-            botonAsiento.actualizarEstado();
             panel_piso.add(botonAsiento);
         }
     }
