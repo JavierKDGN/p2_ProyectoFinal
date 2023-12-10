@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class PanelAsientos extends JPanel {
+    private static VentanaAsientosMediator mediator;
     private Recorrido recorrido;
     private Bus bus;
     private static SistemaAsientos sistema_asientos;
@@ -22,9 +23,12 @@ public class PanelAsientos extends JPanel {
     private PanelAsientos1Piso panel_primer_piso;
     private PanelAsientos2Pisos panel_segundo_piso;
 
-    public PanelAsientos(Color color, Recorrido recorrido) {
+    public PanelAsientos(Color color, Recorrido recorrido, VentanaAsientosMediator mediator) {
         this.setBackground(Color.lightGray);
         this.setLayout(new GridLayout(3,1, 0, 50));
+
+        this.mediator = mediator;
+        this.mediator.setPanel(this);
 
         this.recorrido = recorrido;
         this.bus = recorrido.getBus();
@@ -64,6 +68,7 @@ public class PanelAsientos extends JPanel {
 
             private void abrirVentanaConfirmacion(Recorrido recorrido, SistemaAsientos sistema_asientos) {
                 VentanaConfirmacion ventanaConfirmacion = new VentanaConfirmacion(recorrido, sistema_asientos);
+                mediator.cerrarVentana();
                 ventanaConfirmacion.setVisible(true);
             }
         }
