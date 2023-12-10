@@ -27,7 +27,7 @@ public class SistemaAsientos {
             precio += aux.getPrecio() + bus.getTarifa();
         }
         else {
-            //Excepcion
+            //Excepcion no puedes elegir un asiento ocupado
         }
     }
     public void deselegirAsiento(int index) {
@@ -64,5 +64,14 @@ public class SistemaAsientos {
     }
     public int getPrecioInt() {
         return precio;
+    }
+
+    @Override
+    public String toString() {
+        return "Sistema del bus: " + System.identityHashCode(bus) + "\n" +
+                "Asientos totales: " + getAsientosTotalInt() + "\n" +
+                "Asientos ocupados: " + getAsientosOcupadosArray().size() + "\n" +
+                "Asientos seleccionados: " + getAsientosSeleccionadosArray().size() + "\n" +
+                "Precio total: $" + getPrecioInt() + "\n";
     }
 }

@@ -19,14 +19,15 @@ class AsientoTest {
 
     @Test
     public void testAsientos() {
-        for (int i = 0; i < 20; i++) {
-            asientos.add(factory.crearAsiento(TipoAsiento.NORMAL));
+        int aux = 0, i, j;
+        for (aux = 0; aux < 20; aux++) {
+            asientos.add(factory.crearAsiento(TipoAsiento.NORMAL,aux));
         }
-        for(int i = 0; i < 10; i++) {
-            asientos.add(factory.crearAsiento(TipoAsiento.SEMICAMA));
+        for(i = aux; i < aux + 20; i++) {
+            asientos.add(factory.crearAsiento(TipoAsiento.SEMICAMA, i));
         }
-        for(int i = 0; i < 5; i++) {
-            asientos.add(factory.crearAsiento(TipoAsiento.CAMA));
+        for(j = i; j < i + 5; j++) {
+            asientos.add(factory.crearAsiento(TipoAsiento.CAMA, j));
         }
 
         for (Asiento asiento: asientos) {

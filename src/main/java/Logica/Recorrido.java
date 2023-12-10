@@ -23,8 +23,17 @@ public class Recorrido implements Comparable<Recorrido> {
         this.horario_salida = horario_salida;
         this.hora_salida = horario_salida.getHora();
         this.distancia = Math.abs(origen.getDistancia() - destino.getDistancia());
-        this.busFactory = new BusFactory((Math.random() <= 0.5) ? 1 : 2);
-        this.bus = busFactory.crearBus();
+        this.busFactory = new BusFactory();
+        asignarBus();
+    }
+
+    private void asignarBus() {
+        this.bus = busFactory.crearBus((Math.random() <= 0.5) ? 1 : 2);
+        bus.setTarifa(calcularPrecio());
+        calcularHoraLLegada();
+    }
+    public void debugAsignarBus(int pisos) {
+        this.bus = busFactory.crearBus(pisos);
         bus.setTarifa(calcularPrecio());
         calcularHoraLLegada();
     }
