@@ -2,14 +2,14 @@ package Buses;
 
 public abstract class Asiento {
     protected int precio;
+    private int numero;
     protected String tipo;
     public boolean ocupado;
-    private int numero;
-    protected int seleccionado;
+    protected boolean temp_seleccionado;
     public Asiento(int numero) {
         this.ocupado = false;//empieza con todos los asientos desocupados
+        this.temp_seleccionado = false;//empieza con todos los asientos sin seleccionar
         this.numero = numero;
-        this.seleccionado = 0;//empieza con todos los asientos sinseleccionar
     }
 
     public int getPrecio() {
@@ -27,12 +27,11 @@ public abstract class Asiento {
     public boolean isOcupado() {
         return ocupado;
     }
-
-    public int getSeleccionado() {
-        return seleccionado;
+    public boolean getTemp_seleccionado() {
+        return temp_seleccionado;
     }
-    public void setSeleccionado(int seleccionado) {
-        this.seleccionado = seleccionado;
+    public void setTemp_seleccionado(boolean temp_seleccionado) {
+        this.temp_seleccionado = temp_seleccionado;
     }
 
 }

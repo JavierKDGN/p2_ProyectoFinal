@@ -10,72 +10,62 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class PanelAsientos extends JPanel {
-    private SistemaAsientos sistema_Asientos;
+    private Recorrido recorrido;
+    private Bus bus;
+    private static SistemaAsientos sistema_asientos;
+    private int pisos;
+    private int CANTIDAD_ASIENTOS_TOTAL;
+    private int CANTIDAD_ASIENTOS_CAMA;
     private ArrayList<Asiento> asientos;
-    private final int pisos;
-    private final int CANTIDAD_ASIENTOS_TOTAL;
-    private final int CANTIDAD_ASIENTOS_CAMA;
-
-    private ArrayList<Asiento> asientosPedidos;
 
     private JButton botonConfirmar;
-
     private PanelAsientos1Piso panel_primer_piso;
     private PanelAsientos2Pisos panel_segundo_piso;
 
-    public PanelAsientos(Color color, Bus bus) {
+    public PanelAsientos(Color color, Recorrido recorrido) {
         this.setBackground(Color.lightGray);
-        this.setLayout(new GridLayout(2,1, 0, 50));
-        sistema_Asientos = new SistemaAsientos(bus);
-        asientos = sistema_Asientos.getAsientosTotalesArray();
-        CANTIDAD_ASIENTOS_TOTAL = sistema_Asientos.getAsientosTotalInt();
-        CANTIDAD_ASIENTOS_CAMA = bus.getAsientosCamaInt();
-        pisos = bus.getCantidadPisos();
+        this.setLayout(new GridLayout(3,1, 0, 50));
 
-        panel_primer_piso = new PanelAsientos1Piso(Color.lightGray, sistema_Asientos);
+        this.recorrido = recorrido;
+        this.bus = recorrido.getBus();
+        this.sistema_asientos = new SistemaAsientos(bus);
+
+        this.pisos = bus.getCantidadPisos();
+        this.CANTIDAD_ASIENTOS_TOTAL = sistema_asientos.getAsientosTotalInt();
+        this.CANTIDAD_ASIENTOS_CAMA = bus.getAsientosCamaInt();
+        this.asientos = sistema_asientos.getAsientosTotalesArray();
+        this.botonConfirmar = new botonConfirmar("Confirmar");
+        this.add(botonConfirmar);
+        inicializarPisos();
+
+    }
+    private void inicializarPisos() {
+        panel_primer_piso = new PanelAsientos1Piso(Color.lightGray, sistema_asientos);
         panel_primer_piso.agregarAsientos(asientos, CANTIDAD_ASIENTOS_TOTAL - CANTIDAD_ASIENTOS_CAMA);
-        this.add(panel_primer_piso, BorderLayout.NORTH);
-
-        asientosPedidos = new ArrayList<>();
-
+        this.add(panel_primer_piso);
         if (pisos == 2) {
-            panel_segundo_piso = new PanelAsientos2Pisos(Color.BLUE, sistema_Asientos);
+            panel_segundo_piso = new PanelAsientos2Pisos(Color.BLUE, sistema_asientos);
             panel_segundo_piso.agregarAsientos(asientos, CANTIDAD_ASIENTOS_TOTAL - CANTIDAD_ASIENTOS_CAMA);
-            this.add(panel_segundo_piso, BorderLayout.SOUTH);
+            this.add(panel_segundo_piso);
         }
-
     }
-    private void abrirVentanaConfirmacion(Recorrido recorrido, ArrayList<Asiento> asientosPedidos) {
-        VentanaConfirmacion ventanaConfirmacion = new VentanaConfirmacion(recorrido, asientosPedidos);
-        ventanaConfirmacion.setVisible(true);
-    }
-    void inicializarBotonConfirmar(Recorrido recorrido) {
-        JButton botonConfirmar = new JButton("Confirmar");
-
-        botonConfirmar.addActionListener(new ActionListener() {
-            @Override
+    private class botonConfirmar extends JButton {
+        public botonConfirmar(String s) {
+            super(s);
+            this.addActionListener(new botonConfirmarListener());
+        }
+        class botonConfirmarListener implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 // Limpiar la lista antes de agregar los asientos seleccionados
-                asientosPedidos.clear();
-
-                // Iterar sobre todos los asientos y agregar los seleccionados a la lista
-                for (Asiento asiento : sistema_Asientos.getAsientosTotalesArray()) {
-                    if (asiento.getSeleccionado() == 1) {
-                        asientosPedidos.add(asiento);
-                    }
-                }
-
+                sistema_asientos.confirmarAsientos();
                 // Abrir la ventana de confirmación
-                abrirVentanaConfirmacion(recorrido, asientosPedidos);
+                abrirVentanaConfirmacion(recorrido, sistema_asientos);
             }
-        });
 
-        // Agregar el botón Confirmar al panel
-        this.add(botonConfirmar);
+            private void abrirVentanaConfirmacion(Recorrido recorrido, SistemaAsientos sistema_asientos) {
+                VentanaConfirmacion ventanaConfirmacion = new VentanaConfirmacion(recorrido, sistema_asientos);
+                ventanaConfirmacion.setVisible(true);
+            }
+        }
     }
-    // Método adicional para asignar el Recorrido después de la creación del panel
-    public void asignarRecorrido(Recorrido recorrido) {
-        inicializarBotonConfirmar(recorrido);
-    }
-
 }

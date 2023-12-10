@@ -18,25 +18,29 @@ public class BotonAsiento extends JButton {
         this.sistema_asientos = sistema_asientos;
 
         this.setText("<html> " + String.valueOf(asiento.getNumero()) + "<br />" + asiento.getTipo() + "</html>");
-        this.setBackground(Color.green);
+
+        if(this.asiento.isOcupado()) this.setBackground(Color.gray);
+        else this.setBackground(Color.green);
         this.addActionListener(new AsientoListener());
     }
 
     private class AsientoListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            if (asiento.getSeleccionado() == 0) {
-                System.out.println("Asiento " + asiento.getNumero() + " seleccionado");
-                sistema_asientos.elegirAsiento(asiento.getNumero());
-                asiento.setSeleccionado(1);
+            if (asiento.isOcupado()) {
 
-                // Al hacer clic, cambia a rojo
-                setBackground(Color.red);
-            } else {
-                // Deseleccionar el asiento
-                asiento.setSeleccionado(0);
-
-                // Vuelve a verde si no está ocupado
-                setBackground(asiento.getSeleccionado()==1 ? Color.red : Color.green);
+            }
+            else {
+                if (asiento.getTemp_seleccionado() == false) {
+                    System.out.println("Asiento " + asiento.getNumero() + " seleccionado");
+                    sistema_asientos.elegirAsiento(asiento.getNumero());
+                    // Al hacer clic, cambia a rojo
+                    setBackground(Color.red);
+                } else if (asiento.getTemp_seleccionado() == true){
+                    // Deseleccionar el asiento
+                    asiento.setTemp_seleccionado(false);
+                    // Vuelve a verde si no está ocupado
+                    setBackground(Color.green);
+                }
             }
         }
     }
