@@ -63,7 +63,12 @@ public class PanelAsientos extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 // Limpiar la lista antes de agregar los asientos seleccionados
                 // Abrir la ventana de confirmación
-                abrirVentanaConfirmacion(recorrido, sistema_asientos);
+                if (sistema_asientos.getAsientosSeleccionadosArray().size() == 0) {
+                    JOptionPane.showMessageDialog(null, "No ha seleccionado ningún asiento");
+                }
+                else {
+                    abrirVentanaConfirmacion(recorrido, sistema_asientos);
+                }
             }
 
             private void abrirVentanaConfirmacion(Recorrido recorrido, SistemaAsientos sistema_asientos) {

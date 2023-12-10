@@ -79,7 +79,7 @@ public class Recorrido implements Comparable<Recorrido> {
         return tarifa;
     }
     public String toString() {
-        return bus.toString() + " ~ " +hora_salida + "-" + hora_llegada + " " + origen + "-" + destino ;
+        return hora_salida + "-" + hora_llegada + " " + origen + "-" + destino ;
     }
 
     public int compareTo(Recorrido recorrido) {

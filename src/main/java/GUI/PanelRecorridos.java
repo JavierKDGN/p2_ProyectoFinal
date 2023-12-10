@@ -12,7 +12,6 @@ public class PanelRecorridos extends JPanel {
     private ArrayList<Recorrido> recorridos;
     private RecorridoComboBox recorridosComboBox; //combobox para seleccionar
     private String[] recorridos_String;
-
     public PanelRecorridos(Color color) {
         this.setBackground(color);
         sistemaRecorridos = new SistemaRecorridos();
@@ -38,7 +37,6 @@ public class PanelRecorridos extends JPanel {
             abrirVentanaAsientos(selectedRecorrido);
         }
     }
-
     public Recorrido getRecorridoSeleccionado() {
         int selectedIndex = recorridosComboBox.getSelectedIndex();
         if (selectedIndex != -1) {
