@@ -3,13 +3,13 @@ package Buses;
 public abstract class Asiento {
     protected int precio;
     protected String tipo;
-    protected boolean ocupado;
+    public boolean ocupado;
     private int numero;
     protected int seleccionado;
     public Asiento(int numero) {
-        this.ocupado = false;
+        this.ocupado = false;//empieza con todos los asientos desocupados
         this.numero = numero;
-        this.seleccionado = 0;
+        this.seleccionado = 0;//empieza con todos los asientos sinseleccionar
     }
 
     public int getPrecio() {

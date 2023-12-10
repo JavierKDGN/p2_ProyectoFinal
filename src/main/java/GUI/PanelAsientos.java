@@ -73,11 +73,9 @@ public class PanelAsientos extends JPanel {
         // Agregar el botón Confirmar al panel
         this.add(botonConfirmar);
     }
-
     // Método adicional para asignar el Recorrido después de la creación del panel
     public void asignarRecorrido(Recorrido recorrido) {
         inicializarBotonConfirmar(recorrido);
     }
-
 
 }

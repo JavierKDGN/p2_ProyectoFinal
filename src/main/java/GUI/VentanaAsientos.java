@@ -9,7 +9,6 @@ import java.awt.*;
 public class VentanaAsientos  extends JFrame {
     private Recorrido recorrido;
     private PanelAsientos panelAsientos;
-
     public VentanaAsientos(Recorrido recorrido) {
         super();
         this.recorrido = recorrido;
@@ -34,5 +33,8 @@ public class VentanaAsientos  extends JFrame {
                     "Asientos: " + cantidadAsientos + "\n";
             JOptionPane.showMessageDialog(this, mensaje);
         }
+    }
+    public void cerrarVentana() {
+        this.dispose(); // Cierra la ventana
     }
 }
