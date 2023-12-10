@@ -8,13 +8,16 @@ import java.awt.*;
 
 public class VentanaAsientos  extends JFrame {
     private PanelAsientos panelAsientos;
+    private static VentanasMediator mediator;
     public VentanaAsientos(Recorrido recorrido) {
         super();
         this.setTitle("Asientos - " + recorrido.toString());
         this.setLayout(new BorderLayout());
         this.setSize(800, 600);
 
-        panelAsientos = new PanelAsientos(Color.lightGray, recorrido);
+        this.mediator = new VentanasMediator(this);
+        panelAsientos = new PanelAsientos(Color.lightGray, recorrido, mediator);
+
         this.add(panelAsientos, BorderLayout.CENTER);
         mostrarInformacionBus(recorrido);
     }

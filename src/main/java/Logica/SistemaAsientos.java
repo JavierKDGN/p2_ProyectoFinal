@@ -7,9 +7,9 @@ import java.util.ArrayList;
 public class SistemaAsientos {
 
     private Bus bus;
-    private ArrayList<Asiento> asientos;
-    private ArrayList<Asiento> asientos_seleccionados;
-    private ArrayList<Asiento> asientos_ocupados;
+    private static ArrayList<Asiento> asientos;
+    private static ArrayList<Asiento> asientos_seleccionados;
+    private static ArrayList<Asiento> asientos_ocupados;
     private int precio;
 
     public SistemaAsientos(Bus bus) {
@@ -27,7 +27,7 @@ public class SistemaAsientos {
             precio += aux.getPrecio() + bus.getTarifa();
         }
         else {
-            //Excepcion
+            //Excepcion no puedes elegir un asiento ocupado
         }
     }
     public void deselegirAsiento(int index) {
@@ -50,6 +50,13 @@ public class SistemaAsientos {
         }
         asientos_seleccionados.clear();
     }
+    public void cancelarCompra() {
+        for (Asiento asiento : asientos_seleccionados) {
+            asiento.setTemp_seleccionado(false);
+        }
+        asientos_seleccionados.clear();
+        precio = 0;
+    }
     public ArrayList<Asiento> getAsientosTotalesArray() {
         return asientos;
     }
@@ -64,5 +71,14 @@ public class SistemaAsientos {
     }
     public int getPrecioInt() {
         return precio;
+    }
+
+    @Override
+    public String toString() {
+        return "Sistema del bus: " + System.identityHashCode(bus) + "\n" +
+                "Asientos totales: " + getAsientosTotalInt() + "\n" +
+                "Asientos ocupados: " + getAsientosOcupadosArray().size() + "\n" +
+                "Asientos seleccionados: " + getAsientosSeleccionadosArray().size() + "\n" +
+                "Precio total: $" + getPrecioInt() + "\n";
     }
 }
