@@ -2,6 +2,8 @@ Proyecto Programación
 
 °Integrantes: Javier Alberto Cadagan Parra - Javier Arnoldo Torres Ortiz
 
+°Tema: Sistema de reserva de asientos de autobús
+
 °UML:
 
 °Diagrama de casos de uso:
