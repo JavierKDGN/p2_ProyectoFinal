@@ -25,6 +25,7 @@ public class PanelConfirmacion extends JPanel {
         this.mediator = mediator;
         mediator.setPanel(this);
 
+        System.out.println("Reserva: " + recorrido.toString() + " " + sistema_asientos.getAsientosSeleccionadosArray().toString());
         this.panel_info = new PanelInfo();
         this.boton_pagar = new BotonPagar("Pagar");
         this.boton_cancelar = new BotonCancelar("Cancelar Compra");

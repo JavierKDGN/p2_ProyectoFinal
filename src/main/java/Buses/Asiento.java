@@ -34,4 +34,7 @@ public abstract class Asiento {
         this.temp_seleccionado = temp_seleccionado;
     }
 
+    public String toString() {
+        return "Asiento "+ numero + "(" + tipo + ")";
+    }
 }

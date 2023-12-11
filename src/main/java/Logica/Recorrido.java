@@ -43,8 +43,8 @@ public class Recorrido implements Comparable<Recorrido> {
         int indice_aux;
 
         switch (distancia) {
-            case 0, 1 -> indice_aux = MEDIA_HORA * 3; //Chillan-Concepcion-LosAngeles
-            case 4 -> indice_aux = MEDIA_HORA * 10;//LosAngeles/Concepcion - Santiago
+            case 0, 1, 2 -> indice_aux = MEDIA_HORA * 3; //Chillan-Concepcion-LosAngeles
+            case 3,4 -> indice_aux = MEDIA_HORA * 10;//LosAngeles/Concepcion - Santiago
             case 5 -> indice_aux = MEDIA_HORA * 9;//Chillan-Santiago
             default -> indice_aux = 0;
         }
