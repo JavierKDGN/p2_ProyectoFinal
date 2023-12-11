@@ -16,6 +16,9 @@ public abstract class Bus {
         asientos = new ArrayList();
     }
 
+    /**
+     * Crea los asientos del bus y los agrega al ArrayList
+     */
     protected void crearAsientos() {
         for (int i = 0; i < ASIENTOS_NORMAL; i++) {
             Asiento aux = asientoFactory.crearAsiento(TipoAsiento.NORMAL, i);

@@ -6,6 +6,7 @@ import Buses.BusFactory;
 import java.time.LocalTime;
 
 public class Recorrido implements Comparable<Recorrido> {
+
     private final EnumHorarios horario_salida;
     private final String origen;
     private final String destino;
@@ -17,6 +18,13 @@ public class Recorrido implements Comparable<Recorrido> {
     private Bus bus;
     private int tarifa;
 
+    /**
+     *
+     * @param origen origen del viaje
+     * @param destino destino del viaje
+     * @param horario_salida hora de salida del viaje
+     * Se crea un recorrido con los parametros entregados, se calcula la distancia entre las ciudades
+     */
     public Recorrido(EnumCiudades origen , EnumCiudades destino, EnumHorarios horario_salida) {
         this.origen = origen.getNombre();
         this.destino = destino.getNombre();
@@ -27,16 +35,28 @@ public class Recorrido implements Comparable<Recorrido> {
         asignarBus();
     }
 
+    /**
+     * Se asigna un bus aleatorio al recorrido
+     */
     private void asignarBus() {
         this.bus = busFactory.crearBus((Math.random() <= 0.5) ? 1 : 2);
         bus.setTarifa(calcularPrecio());
         calcularHoraLLegada();
     }
+
+    /**
+     * Se asigna un bus al recorrido, se utiliza para debuggear
+     * @param pisos bus de pisos pisos
+     */
     public void debugAsignarBus(int pisos) {
         this.bus = busFactory.crearBus(pisos);
         bus.setTarifa(calcularPrecio());
         calcularHoraLLegada();
     }
+
+    /**
+     * Se calcula la hora de llegada del viaje
+     */
     void calcularHoraLLegada() {
         //if distancia < 2 entonces el viaje dura 1 hora y media
         final int MEDIA_HORA = 30;
@@ -74,6 +94,11 @@ public class Recorrido implements Comparable<Recorrido> {
     public Bus getBus() {
         return bus;
     }
+
+    /**
+     * Se calcula el precio del viaje
+     * @return
+     */
     public int calcularPrecio() {
         tarifa = 2000 * distancia;
         return tarifa;

@@ -5,6 +5,11 @@ public class BusFactory {
     public BusFactory() {
     }
 
+    /**
+     * Crea un bus de un piso o dos pisos dependiendo del parametro
+     * @param pisos
+     * @return
+     */
     public Bus crearBus(int pisos) {
         switch (pisos) {
             case 1 -> bus = new BusUnPiso();

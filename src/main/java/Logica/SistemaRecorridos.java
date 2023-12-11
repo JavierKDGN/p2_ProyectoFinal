@@ -14,6 +14,10 @@ public class SistemaRecorridos {
 
         crearRecorridos();
     }
+
+    /**
+     * Crea los recorridos aleatoriamente mediante el Factory
+     */
     private void crearRecorridos() {
         //Crea los recorridos aleatoriamente mediante el Factory
         for (int i = 0; i < CANTIDAD_RECORRIDOS; i++) {
@@ -24,6 +28,10 @@ public class SistemaRecorridos {
         //Ordena los recorridos por hora de salida
         Collections.sort(recorridos);
     }
+
+    /**
+     * Imprime los recorridos
+     */
     public void printRecorridos() {
         for (Recorrido recorrido : recorridos) {
             System.out.println(recorrido.toString());

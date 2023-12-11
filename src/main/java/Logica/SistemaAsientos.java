@@ -12,12 +12,18 @@ public class SistemaAsientos {
     private static ArrayList<Asiento> asientos_ocupados;
     private int precio;
 
+
     public SistemaAsientos(Bus bus) {
         this.bus = bus;
         this.asientos = bus.getAsientosArray();
         this.asientos_seleccionados = new ArrayList<>();
         this.asientos_ocupados = new ArrayList<>();
     }
+
+    /**
+     *
+     * @param index numero del asiento a elegir
+     */
     public void elegirAsiento(int index) {
         Asiento aux = asientos.get(index);
         //Si el asiento a elegir esta ocupado lanza excepcion
@@ -30,6 +36,11 @@ public class SistemaAsientos {
             //Excepcion no puedes elegir un asiento ocupado
         }
     }
+
+    /**
+     *
+     * @param index numero del asiento a des-elegir
+     */
     public void deselegirAsiento(int index) {
         Asiento aux = asientos.get(index);
 
@@ -43,6 +54,10 @@ public class SistemaAsientos {
             //No se puede deselegir asiento ocupado de antes
         }
     }
+
+    /**
+     * Confirma la compra de los asientos
+     */
     public void confirmarAsientos() {
         for (Asiento asiento : asientos_seleccionados) {
             asiento.setOcupado(true);
@@ -50,6 +65,10 @@ public class SistemaAsientos {
         }
         asientos_seleccionados.clear();
     }
+
+    /**
+     * Cancela la compra de los asientos
+     */
     public void cancelarCompra() {
         for (Asiento asiento : asientos_seleccionados) {
             asiento.setTemp_seleccionado(false);

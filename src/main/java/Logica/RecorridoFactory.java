@@ -3,6 +3,7 @@ package Logica;
 import java.util.Random;
 
 public class RecorridoFactory {
+
     private final EnumCiudades[] ciudades;
     private final EnumHorarios[] horarios;
     private final Random random;
@@ -13,6 +14,10 @@ public class RecorridoFactory {
         this.random = new Random();
     }
 
+    /**
+     * Crea un recorrido aleatorio
+     * @return Recorrido
+     */
     public Recorrido crearRecorridoAleatorio() {
         EnumCiudades origen;
         EnumCiudades destino;
