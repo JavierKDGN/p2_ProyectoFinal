@@ -4,9 +4,9 @@ Proyecto Programación
 
 °Tema: Sistema de reserva de asientos de autobús
 
-°UML:
+°UML: En la carpeta de imagenes
 
-°Diagrama de casos de uso:
+°Diagrama de casos de uso: En la carpeta de imagenes
 
 °Patrones ocupados:
   *Factory: Sabemos que el patrón Factory se utiliza para crear objetos de una jerarquía de clases sin especificar la clase concreta que se va a instanciar. Decidimos ocupar este ya que el cliente no necesita 
@@ -14,7 +14,7 @@ Proyecto Programación
   *Mediator: Sabemos que este se utiliza para centralizar la comunicación y las interacciones entre varios objetos, evitando que estos objetos se comuniquen directamente entre sí. Ocupamos este para se comuniquen 
             ciertos objetos(ventanas) con sus respectivos paneles de manera desacoplada a través de un objeto mediador central VentanasMediator para poder cerrar las ventanas cuando ya no son necesarias.
 
-°Ss de la interfaz:
+°Ss de la interfaz: En la carpeta de imagenes
 
 °Algo que nos ayudo mucho en el camino fue tener el diseño base muy temprano. nos preocupamos de tener todo pensado desde un inicio de como queriamos que se viera y que queriamos que hiciera cada interaccion y cada ventana y esto hizo que luego trabajar en el codigo se nos facilitara mucho ya que teniamos bastante claritud de lo que buscabamos y a lo que teniamos que llegar.
  Empezamos creando los enum y ciudades y horarios, dedicamos harto tiempo a elegir como queriamos definir los recorridos y como iban a funcionar el tema de los asientos y las tarifas y tambien creamos las clases basicas bus y asientos porque encontramos muy importante definir de un inicio la cantidad de asientos de cada tipo para que tipo de bus. 
